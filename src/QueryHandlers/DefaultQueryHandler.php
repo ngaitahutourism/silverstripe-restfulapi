@@ -373,7 +373,8 @@ class DefaultQueryHandler implements QueryHandler
             );
         }
 
-        $rawJson = $request->getBody();
+        // $rawJson = $request->getBody();
+        $rawJson = json_encode($request->postVars());
 
         // Before deserialize hook
         if (method_exists($model, 'onBeforeDeserialize')) {
